@@ -125,7 +125,7 @@ public class UserController {
         }
     }
     
-    @GetMapping(value = "/name")
+    @GetMapping(value = "/name") 
     @ResponseBody
     public ResponseEntity getUser() {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

@@ -23,6 +23,7 @@ import com.back.dto.PlayerDTO;
 import com.back.dto.SportClubDTO;
 import com.back.model.Player;
 import com.back.model.SportClub;
+import com.back.repository.PlayerRepository;
 import com.back.service.ClubService;
 import com.back.service.PlayerService;
 import com.back.support.ClubDTOToClub;
@@ -46,6 +47,8 @@ public class ClubController {
 	private PlayerToPlayerDTO toPlayerDto;
 	@Autowired
 	private PlayerDTOToPlayer toPlayer;
+	//@Autowired
+	//private PlayerRepository plRep;
 	
 	@GetMapping
 	public ResponseEntity<List<SportClubDTO>> getAll() {
@@ -85,18 +88,26 @@ public class ClubController {
 	//@PreAuthorize("hasRole('ROLE_EDITOR')")
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<SportClubDTO> create(@Valid @RequestBody SportClubDTO clubDTO) {
+		/*SportClub sportClub = new SportClub();
+		List<Player> clubPlayers = toPlayer.convert(clubDTO.getPlayers());
 		
-		/*List<Player> players = new ArrayList<>();
-		List<PlayerDTO> playerDTOs = new ArrayList<>();
-		Player player = new Player();
-		for (PlayerDTO pl: playerDTOs) {
-			player.setId(pl.getId());
-			player.setImage(pl.getImage());
-			player.setPlayerName(pl.getPlayerName());
-			player.setSalary(pl.getSalary());
-			players.add(player);
-		}*/
+		sportClub.setName(clubDTO.getName());
+		SportClub club = toClub.convert(clubDTO);
+		SportClub saveClub = clubService.save(club);
 		
+		clubPlayers.stream().forEach(p -> {
+			Player player = plRep.findById(p.getId()).get();
+			System.out.println(p + "*********");
+				if(player.getSportClub() == null) {
+					player.setSportClub(club);
+				} else {
+					System.out.println("This player already exists");
+				}
+				playerService.save(player);
+		});
+		sportClub.setPlayers(clubPlayers);
+		
+		return new ResponseEntity<>(toClubDto.convert(saveClub), HttpStatus.CREATED);*/
 		SportClub club = toClub.convert(clubDTO);
 		SportClub saveClub = clubService.save(club);
 		

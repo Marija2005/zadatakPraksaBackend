@@ -34,6 +34,18 @@ public class Player {
 	
 	@ManyToOne
 	private SportClub sportClub;
+	
+	public Player() {
+		
+	}
+
+	public Player(Long id, String playerName, int salary, String image) {
+		super();
+		this.id = id;
+		this.playerName = playerName;
+		this.salary = salary;
+		this.image = image;
+	}
 
 	public Long getId() {
 		return id;

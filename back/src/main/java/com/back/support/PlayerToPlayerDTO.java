@@ -24,11 +24,7 @@ public class PlayerToPlayerDTO implements Converter<Player, PlayerDTO>{
 		dto.setImage(player.getImage());
 		dto.setPlayerName(player.getPlayerName());
 		dto.setSalary(player.getSalary());
-		if(player.getSportClub().getId() == null) {
-			dto.setSportClubId((long) 1);
-		} else {
-			dto.setSportClubId(player.getSportClub().getId());
-		}
+		dto.setSportClubId(player.getSportClub().getId());
 		dto.setSportClubName(player.getSportClub().getName());
 		List<Skills> skills = new ArrayList<>(player.getSkills());
 		dto.setSkills(new ArrayList<>(toSkillsDto.convert(skills)));

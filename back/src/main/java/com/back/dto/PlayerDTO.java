@@ -11,6 +11,17 @@ public class PlayerDTO {
 	private String sportClubName;
 	private List<SkillsDTO> skills;
 	
+	public PlayerDTO() {
+		
+	}
+	
+	public PlayerDTO(Long id, String playerName, int salary, String image) {
+		super();
+		this.id = id;
+		this.playerName = playerName;
+		this.salary = salary;
+		this.image = image;
+	}
 	public Long getId() {
 		return id;
 	}
