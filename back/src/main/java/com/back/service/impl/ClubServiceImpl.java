@@ -6,10 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.back.model.Player;
 import com.back.model.SportClub;
 import com.back.repository.ClubRepository;
-import com.back.repository.PlayerRepository;
 import com.back.service.ClubService;
 
 @Service 
@@ -17,8 +15,6 @@ public class ClubServiceImpl implements ClubService {
 	
 	@Autowired
 	private ClubRepository clubRepository;
-	@Autowired
-	private PlayerRepository playerRepository;
 
 	@Override
 	public List<SportClub> findAll() {

@@ -1,5 +1,6 @@
 package com.back.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -21,7 +22,15 @@ public class SportClub {
 	private String name;
 	
 	@OneToMany(mappedBy = "sportClub" , fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Player> players;
+	private List<Player> players = new ArrayList<>();
+	
+	public SportClub() {}
+	
+	public SportClub(long id, String name) {
+		this.id= id;
+		this.name = name;
+		//this.players = new List<Player>();
+	}
 
 	public Long getId() {
 		return id;
@@ -40,7 +49,8 @@ public class SportClub {
 	}
 
 	public List<Player> getPlayers() {
-		return players;
+		if(players != null)return players;
+		else return new ArrayList<Player>();
 	}
 
 	public void setPlayers(List<Player> players) {

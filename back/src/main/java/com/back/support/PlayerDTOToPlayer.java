@@ -1,9 +1,5 @@
 package com.back.support;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -43,19 +39,4 @@ public class PlayerDTOToPlayer implements Converter<PlayerDTO, Player>{
 		}
 		return player;
 	}
-	
-	/*public List<Player> convert(List<PlayerDTO> dtos) {
-		List<Player> newList = new ArrayList<>();
-		for (PlayerDTO dto : dtos) {
-			Player player = new Player(
-					dto.getId(),
-					dto.getPlayerName(),
-					dto.getSalary(),
-					dto.getImage()
-					);
-			newList.add(player);
-			
-		}
-		return newList;
-	}*/
 }

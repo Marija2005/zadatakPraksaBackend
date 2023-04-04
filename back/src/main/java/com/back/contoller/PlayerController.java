@@ -3,7 +3,6 @@ package com.back.contoller;
 import java.util.List;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,14 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.back.dto.PlayerDTO;
-import com.back.dto.SkillsDTO;
 import com.back.model.Player;
-import com.back.model.Skills;
 import com.back.service.PlayerService;
-import com.back.service.SkillsService;
 import com.back.support.PlayerDTOToPlayer;
 import com.back.support.PlayerToPlayerDTO;
-import com.back.support.SkillsToSkillsDTO;
 
 @RestController
 @RequestMapping(value="/api/players", produces=MediaType.APPLICATION_JSON_VALUE)
@@ -38,10 +33,6 @@ public class PlayerController {
 	private PlayerDTOToPlayer toPlayer;
 	@Autowired
 	private PlayerToPlayerDTO toPlayerDto;
-	@Autowired
-	private SkillsService skillsService;
-	@Autowired
-	private SkillsToSkillsDTO toSkillsDto;
 	
 	//@PreAuthorize("hasRole('ROLE_EDITOR')")
 	@PostMapping(consumes=MediaType.APPLICATION_JSON_VALUE)

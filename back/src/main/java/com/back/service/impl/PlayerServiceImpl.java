@@ -48,7 +48,13 @@ public class PlayerServiceImpl implements PlayerService {
 
 	@Override
 	public List<Player> findByClubId(Long clubId) {
-		return playerRepository.findBySportClubId(clubId);
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	/*@Override
+	public List<Player> findByClubId(Long clubId) {
+		return playerRepository.findBySportClubId(clubId);
+	}*/
 
 }

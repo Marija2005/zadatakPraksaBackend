@@ -3,7 +3,6 @@ package com.back.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.back.model.Player;
 import com.back.model.SportClub;
 
 public interface ClubService {

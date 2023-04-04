@@ -85,6 +85,8 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         Users user = toUser.convert(userDTO);
+        String encodedPassword = passwordEncoder.encode(userDTO.getPassword());
+        user.setPassword(encodedPassword);
 
         return new ResponseEntity<>(toUserDto.convert(userService.save(user)),HttpStatus.OK);
     }

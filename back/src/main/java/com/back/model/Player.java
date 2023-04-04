@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -32,6 +31,7 @@ public class Player {
 	@OneToMany(mappedBy = "player" , cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Skills> skills = new ArrayList<>();
 	
+	//@ManyToOne(optional = true, fetch = FetchType.LAZY)
 	@ManyToOne
 	private SportClub sportClub;
 	
@@ -88,11 +88,11 @@ public class Player {
 	}
 
 	public SportClub getSportClub() {
-		return sportClub;
+		if(sportClub != null) return sportClub;
+		else return new SportClub(0, "N/A");
 	}
 
 	public void setSportClub(SportClub sportClub) {
 		this.sportClub = sportClub;
 	}
-	
 }
